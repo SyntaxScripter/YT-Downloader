@@ -3,6 +3,17 @@
 **Description**  
 this is a simple youtube video downloader written in python
 
+## Requirements
+### install yt-dlp
+### for windows
+```bash
+pip install yt-dlp
+```
+### for linux
+```bash
+python3 -m pip install yt-dlp
+```
+
 ## Installation
 
 ### clone repository
