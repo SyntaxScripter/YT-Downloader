@@ -1,18 +1,23 @@
 import os
 import time
 import threading
-from pytube import YouTube
+import yt_dlp
 
-os.system('cls')
-os.system("color 79")
+os.system('cls' if os.name == 'nt' else 'clear')
+os.system("color 79" if os.name == 'nt' else "")
 video_downloaded = False
 
 
 def download_youtube_video(url):
     print("Downloading", end="")
-    yt = YouTube(url)
-    stream = yt.streams.get_highest_resolution()
-    stream.download()
+    ydl_opts = {
+        'format': 'best',
+        'outtmpl': '%(title)s.%(ext)s',
+    }
+
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+
     print("\nVideo downloaded successfully!")
 
 
